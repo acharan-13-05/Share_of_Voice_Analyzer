@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Brand Sentiment Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>Brand Sentiment Analyzer</h1>
+
+    <!-- Input Form -->
+    <form id="analyzeForm" class="form">
+      <input id="query" type="text" placeholder="Enter search query" value="smart fan" />
+      <input id="brands" type="text" placeholder="Comma-separated brands" value="{{ brands }}" />
+      <input id="per_platform" type="number" min="1" max="100" step="1" placeholder="Top results per platform (N)" value="{{ per_platform }}" />
+      <button id="analyzeBtn" type="submit">Analyze</button>
+    </form>
+
+    <!-- Meta Summary -->
+    <div id="meta" class="meta"></div>
+
+    <!-- Chart -->
+    <div class="chart-wrap">
+      <canvas id="sovChart"></canvas>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results"></div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
